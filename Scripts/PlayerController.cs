@@ -65,10 +65,6 @@ public class PlayerController : MonoBehaviour
         {
             anim.SetBool("Fall", true);
 
-            //if (Input.GetKey(""))
-            //{
-
-            //}
         }
         if (rb2D.velocity.y > 0 && !Input.GetKey("space"))
         {

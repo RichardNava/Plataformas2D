@@ -22903,8 +22903,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   runSpeed: 2
   jumpSpeed: 4
+  doubleJumpSpeed: 1.5
   rb2D: {fileID: 1456644518}
   spriteR: {fileID: 1456644514}
+  anim: {fileID: 1456644513}
 --- !u!61 &1456644517
 BoxCollider2D:
   m_ObjectHideFlags: 0

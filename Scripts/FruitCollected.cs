@@ -5,8 +5,7 @@ using UnityEngine.Audio;
 
 public class FruitCollected : MonoBehaviour
 {
-
-    //public AudioSource clip;
+    public AudioSource clip;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -17,7 +16,7 @@ public class FruitCollected : MonoBehaviour
             gameObject.transform.GetChild(0).gameObject.SetActive(true);
 
             Destroy(gameObject, 0.5f);
-            // clip.Play();
+            clip.Play();
         }
     }
 }

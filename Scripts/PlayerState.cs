@@ -12,16 +12,23 @@ public class PlayerState : MonoBehaviour
     private int lifes = 3;
     private int lifeLost = 0;
 
+    // Variables para guardar la posicion del player (X/Y)
+    public float checkPointX, checkPointY;
 
     void Start()
     {
+
+        if (PlayerPrefs.GetFloat("checkPointX")!=0)
+        {
+            transform.position = (new Vector2(PlayerPrefs.GetFloat("checkPointX"), PlayerPrefs.GetFloat("checkPointY")));
+        }
         
     }
 
     void Update()
     {
         waitTime += Time.deltaTime;
-        Debug.Log(waitTime);
+
     }
 
     public void PlayerDamage()
@@ -62,6 +69,12 @@ public class PlayerState : MonoBehaviour
     {
 
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void SetCheckPoint(float x, float y)
+    {
+        PlayerPrefs.SetFloat("checkPointX", x);
+        PlayerPrefs.SetFloat("checkPointY", y);
     }
 
 }

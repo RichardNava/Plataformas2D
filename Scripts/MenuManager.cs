@@ -46,12 +46,13 @@ public class MenuManager : MonoBehaviour
     public void QuitGame()
     {
         // Llamada al método que sale del juego
+        Debug.Log("Saliendo del juego");
         Application.Quit();
+
     }
 
     public void PlaySoundButton()
     {
-        Debug.Log("Saliendo del juego");
         clickButtonSound.Play();
     }
 }

@@ -9,6 +9,12 @@ public class PlayerController : MonoBehaviour
     public float jumpSpeed = 4f;
     public float doubleJumpSpeed = 1.5f;
 
+    // Salto sensible 
+    public bool inputJump;
+    // Valores para conocer la potencia del salto en función de la presión ejercida
+    public float pressForce = 0.2f;
+    public float multiplier = 1f;
+
 
     private bool canDoubleJump = false;
    
@@ -93,6 +99,18 @@ public class PlayerController : MonoBehaviour
         {
             rb2D.velocity = new Vector2(0, rb2D.velocity.y);
             anim.SetBool("Run", false);
+        }
+        if (inputJump)
+        {
+            if (rb2D.velocity.y < 0)
+            {
+                rb2D.velocity += Vector2.up * Physics2D.gravity.y * multiplier * Time.deltaTime;
+
+            }
+            if (rb2D.velocity.y > 0 && !Input.GetKey("space"))
+            {
+                rb2D.velocity += Vector2.up * Physics2D.gravity.y * pressForce * Time.deltaTime;
+            }
         }
 
     }

@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 5877356423668782059}
   - component: {fileID: 5877356423668782058}
   - component: {fileID: 9203609112854044046}
+  - component: {fileID: 3044537670953891186}
   m_Layer: 0
   m_Name: MaskDude
   m_TagString: Player
@@ -127,7 +128,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!61 &5877356423668782059
 BoxCollider2D:
@@ -190,6 +191,21 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  waitTime: 0
+  checkPointX: 0
+  checkPointY: 0
+--- !u!114 &3044537670953891186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5877356423668782062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4aa5e41cfcf253740a634a35c89a26e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5877356424606272050
 GameObject:
   m_ObjectHideFlags: 0

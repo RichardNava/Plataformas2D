@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class AudioManager : MonoBehaviour
 {
     public AudioMixer mixer;
-    [SerializeField] Slider volume;
+    [SerializeField] Slider volumeSlider;
 
 
     void Start()
@@ -15,22 +15,32 @@ public class AudioManager : MonoBehaviour
         if (!PlayerPrefs.HasKey("volume"))
         {
             PlayerPrefs.SetFloat("volume", 0.5f);
-
+            Load();
+            SetLevel();
         }
         else
         {
-            // TODO
+            Load();
+            SetLevel();
         }
         
     }
     
-    public void SetLevel(float sliderValue)
+    public void SetLevel()
     {
-        // TODO
+        mixer.SetFloat("SetVolume", Mathf.Log10(volumeSlider.value) * 20);
+        SaveSettings(volumeSlider.value);
     }
 
-    private void SetSettings(float sliderValue)
+    private void Load()
+    {
+        volumeSlider.value = PlayerPrefs.GetFloat("volume");
+    }
+
+    private void SaveSettings(float sliderValue)
     {
         PlayerPrefs.SetFloat("volume", sliderValue);
     }
+    
+
 }

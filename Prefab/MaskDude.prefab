@@ -196,7 +196,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   waitTime: 0
-  initialPosition: {x: 0, y: 0}
+  vulnerability: 0
   checkPointX: 0
   checkPointY: 0
 --- !u!114 &3044537670953891186

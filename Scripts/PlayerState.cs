@@ -11,6 +11,7 @@ public class PlayerState : MonoBehaviour
     public float waitTime = 0f;
     private int lifes = 3;
     private int lifeLost = 0;
+    public Vector2 initialPosition;
     public bool vulnerability;
  
     // Variables para guardar la posicion del player (X/Y)
@@ -23,7 +24,10 @@ public class PlayerState : MonoBehaviour
         {
             transform.position = (new Vector2(PlayerPrefs.GetFloat("checkPointX"), PlayerPrefs.GetFloat("checkPointY")));
         }
-        
+        else
+        {
+            initialPosition = transform.position;
+        }
     }
 
     void Update()
@@ -69,7 +73,21 @@ public class PlayerState : MonoBehaviour
     public void Respawn()
     {
 
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        if (PlayerPrefs.GetFloat("checkPointX") != 0)
+        {
+            GetComponent<SpriteRenderer>().enabled = false;
+            gameObject.transform.GetChild(2).gameObject.SetActive(true);
+            transform.position = (new Vector2(PlayerPrefs.GetFloat("checkPointX"), PlayerPrefs.GetFloat("checkPointY")));
+            ResetStats();
+
+        }
+        else
+        {
+            transform.position = initialPosition;
+            ResetStats();
+        }
+
     }
 
     public void SetCheckPoint(float x, float y)
@@ -78,4 +96,14 @@ public class PlayerState : MonoBehaviour
         PlayerPrefs.SetFloat("checkPointY", y);
     }
 
+    public void ResetStats()
+    {
+        lifes = 3;
+        lifeLost = 0;
+        lifesArray[0].GetComponent<Image>().color = Color.white;
+        lifesArray[1].GetComponent<Image>().color = Color.white;
+        lifesArray[2].GetComponent<Image>().color = Color.white;
+        GetComponent<SpriteRenderer>().enabled = true;
+        gameObject.transform.GetChild(2).gameObject.SetActive(false);
+    }
 }

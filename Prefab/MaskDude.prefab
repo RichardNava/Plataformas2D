@@ -196,6 +196,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   waitTime: 0
+  initialPosition: {x: 0, y: 0}
   vulnerability: 0
   checkPointX: 0
   checkPointY: 0
@@ -211,8 +212,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4aa5e41cfcf253740a634a35c89a26e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enableSelectSkin: 1
-  playerSelected: 1
+  enableSelectSkin: 0
+  playerSelected: 3
   anim: {fileID: 5877356423668782063}
   sr: {fileID: 5877356423668782060}
   playerAnimController:

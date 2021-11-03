@@ -34,5 +34,6 @@ public class Bat : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, visionRange);
         Gizmos.DrawWireSphere(transform.position, returnRange);
+       
     }
 }

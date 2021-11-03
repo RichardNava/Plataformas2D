@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour
     public float doubleJumpSpeed = 1.5f;
     [SerializeField] LayerMask groundLayer;
 
+    public ParticleSystem dust;
+
     // Salto sensible 
     public bool inputJump;
     // Valores para conocer la potencia del salto en función de la presión ejercida
@@ -53,6 +55,10 @@ public class PlayerController : MonoBehaviour
         {
             rb2D.velocity = new Vector2(runSpeed,rb2D.velocity.y);
             spriteR.flipX = false;
+            if (dust.transform.rotation.y > -90)
+            {
+                dust.transform.rotation = Quaternion.Euler(0, -90, 0);
+            }
             anim.SetBool("Run", true);
 
         }
@@ -60,6 +66,10 @@ public class PlayerController : MonoBehaviour
         {
             rb2D.velocity = new Vector2(-runSpeed, rb2D.velocity.y);
             spriteR.flipX = true;
+            if (dust.transform.rotation.y < 90)
+            {
+                dust.transform.rotation = Quaternion.Euler(0, 90, 0);
+            }
             anim.SetBool("Run", true);
         }
         else
@@ -166,6 +176,15 @@ public class PlayerController : MonoBehaviour
         {
             transform.position -= new Vector3(0.05f, 0);
         }
+    }
+
+    public void DustPlay()
+    {
+        dust.Play();
+    }
+    public void DustStop()
+    {
+        dust.Stop();
     }
 }
 
